@@ -2,7 +2,7 @@ Package: cytokineFindeR
 Type: Package
 Title: Measure and rank ligands of interest (cytokines) across different methods and databases
 Version: 0.99.0
-Authors@R: c(person(given = "Jeffrey", family = "Tang", email = "jeffrey.tang@hli.ubc.ca", role = c("aut", "cre"),comment = c(ORCID = "0000-0002-5633-6123")),
+Authors@R: c(person(given = "Jeffrey", family = "Tang", email = "jeffrey.tang@hli.ubc.ca", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5633-6123")),
              person(given = "Amrit", family = "Singh", email = "amrit.singh@hli.ubc.ca", role = c("aut"), comment = c(ORCID = "0000-0002-7475-1646")))
 Description: A comprehensive toolkit for measuring and analyzing cytokines and 
     other ligands of interest across a handful of statistical methods and biological 
