@@ -8,7 +8,17 @@
 #' @returns top table that runs differential gene expression analysis. Main purpose for this is to get logFC of all genes for CytoSig input.
 #' @export
 #'
+#' @importFrom limma lmFit
+#' @importFrom limma eBayes
+#' @importFrom limma topTable
+#' @importFrom tibble rownames_to_column
+#'
 #' @examples
+#' \dontrun {
+#' readRDS("pert_dats.rds")
+#' cytosig_pert_input <- lapply(pert_dats, run_limma) # runs all pert data using limma for CytoSig  
+#' }
+
 run_limma <- function (eset, design, obs_id = NULL, correlation = NULL) 
 {
   if (!is.null(obs_id)) {

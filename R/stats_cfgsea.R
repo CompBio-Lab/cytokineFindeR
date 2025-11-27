@@ -9,9 +9,6 @@
 #' @return a table with GSEA results. Each row corresponds to a ligand
 #' @export
 #'
-#' @importFrom limma lmFit
-#' @importFrom limma eBayes
-#' @importFrom limma topTable
 #' @importFrom fgsea fgsea
 #' 
 #' @examples
@@ -25,20 +22,11 @@ cfgsea <- function(eset, design, db,
                    obs_id = NULL, correlation = NULL) {
   # generate linear model from limma for DEA
   # First check if experiment samples are paired
-  if (!is.null(obs_id)) {
-    fit <- lmFit(eset, design, block = obs_id, correlation = correlation)
-    message("fitting model with paired samples.")
-  } else {
-    fit <- lmFit(eset, design) 
-    message("fitting model without paired sample consideration.")
-  }
-  efit <- eBayes(fit)
-  # get topTable
-  top <- topTable(efit, coef = 2, number = nrow(efit))
+  top <- run_limma(eset, design, obs_id, correlation)
   
   # create named vector of t-stats for each gene
   stats <- top$t
-  names(stats) <- rownames(top)
+  names(stats) <- top$genes
   
   # Get the list of lengths of receptors (gene sets) 
   # representing each ligand
