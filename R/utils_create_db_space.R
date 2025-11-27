@@ -1,5 +1,5 @@
-
-#' Title
+#' Create an LRI database space
+#' @details This is a function that saves the database list as an RDA in case future contributors wanted to create other variations of the LRI database compendium 
 #'
 #' @param ... 
 #' @param filePath 
