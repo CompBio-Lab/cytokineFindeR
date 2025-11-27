@@ -2,11 +2,15 @@
 #'
 #' @param geo_ids A character string representing the GEO ID
 #'
-#' @return A combined list of data frames
+#' @return A combined list of data frames saved by GEO_ID series matrix containing metadata, the eset, and annotations (if available)
 #' @export
 #' @name retrieve_geo
 #'
 #' @examples
+#' \dontrun{
+#' geo_datasets <- retrieve_geo("GSE179478")
+#' GSE179478$GSE179478_series_matrix.txt.gz$metadata
+#' }
 #'
 #' @importFrom GEOquery getGEO
 #' @importFrom Biobase pData
@@ -35,40 +39,3 @@ retrieve_geo <- function(geo_id){
   }
   return(combined_data)
 }
-
-# retrieve_geo <- function(geo_id) {
-#   # Try to fetch the GEO data
-#   geo_data <- tryCatch({
-#     getGEO(geo_id, GSEMatrix = TRUE)
-#     }, error = function(e) {
-#       message("Error in fetching GEO data for ID: ", geo_id, " - ", e$message)
-#       return(NULL)
-#       })
-#     
-#   e1 <- geo_data[[paste0(geo_id, "_series_matrix.txt.gz")]]
-#   
-#   # Extract phenotype data
-#   metadata <- pData(e1)
-#   # Extract expression data
-#   eset <- exprs(e1)
-#   
-#   # Extract annotation data
-#   annotations <- e1@featureData@data
-#   annotations <- annotations[annotations$`Gene Symbol` != "", ]
-#   
-#   # Create a list to store all data
-#   combined_data <- list(
-#     metadata = metadata,
-#     eset = eset,
-#     annotations = annotations
-#     )
-#   
-#   # Check if any of the data frames are empty
-#   if (any(sapply(combined_data, nrow) == 0)) {
-#     message("Warning: One or more data frames 
-#             in the combined data list are empty.")
-#   }
-#   
-#   return(combined_data)
-#   
-# }
