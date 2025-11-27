@@ -1,20 +1,19 @@
 Package: cytokineFindeR
 Type: Package
-Title: Measure ligands of interest (cytokines) across different methods and databases
+Title: Measure and rank ligands of interest (cytokines) across different methods and databases
 Version: 0.99.0
-Authors@R: 
-    person("Jeffrey", "Tang", , "jeffrey.tang@hli.ubc.ca", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-5633-6123"))
+Authors@R: c(person(given = "Jeffrey", family = "Tang", email = "jeffrey.tang@hli.ubc.ca", role = c("aut", "cre"),comment = c(ORCID = "0000-0002-5633-6123")),
+             person(given = "Amrit", family = "Singh", email = "amrit.singh@hli.ubc.ca", role = c("aut"), comment = c(ORCID = "0000-0002-7475-1646")))
 Description: A comprehensive toolkit for measuring and analyzing cytokines and 
-    other ligands of interest across multiple analytical methods and biological 
-    databases. Provides functions for data retrieval, statistical analysis, 
-    and visualization of cytokine expression patterns using pre-defined 
-    ligand-receptor interactions.
+    other ligands of interest across a handful of statistical methods and biological 
+    databases using ligand-receptor interactions (LRIs). Provides functions for data retrieval,
+    statistical analysis, and visualization of cytokine expression patterns using pre-defined 
+    receptor gene sets.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: 
-    R (>= 4.0)
+    R (>= 4.4.1)
 Imports: 
     Biobase,
     dplyr,
@@ -31,10 +30,11 @@ Imports:
 Suggests: 
     rmarkdown,
     knitr,
-    testthat (>= 3.0.0),
+    testthat,
     BiocCheck
-biocViews: Software, GeneExpression, Transcriptomics, DifferentialExpression
+biocViews: RNAseq, Microarray, GeneExpression, Transcriptomics, DifferentialExpression, GeneSetEnrichment
 VignetteBuilder: knitr
+URL: https://github.com/CompBio-Lab/cytokineFinder
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Config/testthat/edition: 3
