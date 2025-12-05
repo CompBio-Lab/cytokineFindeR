@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_create_db_space.R
 \name{create_db_space}
 \alias{create_db_space}
-\title{Title}
+\title{Create an LRI database space}
 \usage{
 create_db_space(
   ...,
@@ -21,5 +21,8 @@ create_db_space(
 Saves the database list
 }
 \description{
-Title
+Create an LRI database space
+}
+\details{
+This is a function that saves the database list as an RDA in case future contributors wanted to create other variations of the LRI database compendium
 }

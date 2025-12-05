@@ -7,13 +7,18 @@
 preprocess_eset(eset, dbs)
 }
 \arguments{
-\item{eset}{}
+\item{eset}{the input eset typically the raw gene expression matrix}
 
-\item{dbs}{}
+\item{dbs}{the list of databases in the list of lists that can be called from the package's internal data}
 }
 \value{
 The filtered expression set that contains 0 variability ligands
 }
 \description{
 Preprocess the eset
+}
+\examples{
+\dontrun{
+preprocess_eset(eset, dbs)
+}
 }

@@ -20,7 +20,10 @@ Table of ranked ligands by coef order (largest to smallest)
 Perform PCA and fit a multivariate regression to measure ligand activity
 }
 \examples{
+\dontrun{
 # Load the database
-# dbs_all <- dbs_all
-# cpca_plsda(eset, treatment, dbs_all$baderlab)
+# data(dbs_all)
+# Take one database and run the method on the data and condition
+# pca_plsda(eset, treatment, dbs_all$baderlab)
+}
 }

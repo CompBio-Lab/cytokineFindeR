@@ -23,3 +23,9 @@ a data frame of differentially expressed ligands ordered by p-values
 \description{
 Calculate top ligands using a PCA approach from receptor genes given a database
 }
+\examples{
+\dontrun{
+# pca_limma_res <- pca_limma(eset, design, db)
+}
+
+}

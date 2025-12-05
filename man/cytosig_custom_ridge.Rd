@@ -9,7 +9,7 @@ cytosig_custom_ridge(
   design,
   obs_id = NULL,
   correlation = NULL,
-  beta_coef
+  beta_coef = cytosig_beta
 )
 }
 \arguments{
@@ -21,11 +21,27 @@ cytosig_custom_ridge(
 
 \item{correlation}{if paired design, indicate correlation blocks for paired data}
 
-\item{beta_coef}{beta matrix for ridge regression from published CytoSig}
+\item{beta_coef}{beta matrix for ridge regression. Defaults to cytosig_beta included in package.}
 }
 \value{
 CytoSig ridge regression results table
 }
 \description{
 Run CytoSig Custom Ridge Regression function
+}
+\details{
+Cytokine Signaling Analyzer or CytoSig (Jiang et al, 2021) is a ridge regression predictive model of cytokine signaling
+cascades trained on 20,591 transcriptomic profiles of perturbations relevant to cytokine activity. The following is our
+adoption of CytoSig using the beta coefficients published using logFC results generated differential expression through
+our run_limma function based on the standard of practice, which can be done through cytokineFindeR's functions.
+}
+\examples{
+\dontrun{
+# Ridge regression with default CytoSig beta coefficients
+result <- cytosig_custom_ridge(eset, design)
+
+# Ridge regression with custom beta coefficients
+result <- cytosig_custom_ridge(eset, design, beta_coef = custom_beta)
+}
+
 }

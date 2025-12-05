@@ -10,8 +10,15 @@ retrieve_geo(geo_id)
 \item{geo_ids}{A character string representing the GEO ID}
 }
 \value{
-A combined list of data frames
+A combined list of data frames saved by GEO_ID series matrix containing metadata, the eset, and annotations (if available)
 }
 \description{
 Retrieve GEO data using the Bioconductor package GEOquery, clean it up, and store in a df list
+}
+\examples{
+\dontrun{
+geo_datasets <- retrieve_geo("GSE179478")
+GSE179478$GSE179478_series_matrix.txt.gz$metadata
+}
+
 }

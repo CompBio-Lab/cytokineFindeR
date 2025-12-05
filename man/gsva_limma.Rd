@@ -23,3 +23,11 @@ top table of all ligands
 \description{
 Gene Set Variation Analysis for cytokines (cGSVA)
 }
+\examples{
+\dontrun{
+# Load the database
+# data(dbs_all)
+# Take one database and run the method on the data and condition for an unpaired dataset
+# gsva_limma(eset, treatment, dbs_all$baderlab)
+}
+}

@@ -21,3 +21,11 @@ top table that runs differential gene expression analysis. Main purpose for this
 \description{
 Run limma in unpaired or paired mode
 }
+\examples{
+\dontrun{
+# Load up the datasets
+# pert_dats <- readRDS("pert_dats.rds")
+# runs all pert data using limma for CytoSig
+# cytosig_pert_input <- lapply(pert_dats, run_limma)
+}
+}
