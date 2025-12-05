@@ -61,13 +61,13 @@ test_that("run_lri_methods executes multiple methods", {
   databases <- list(
     db1 = list(IL6 = c("GENE_1", "GENE_2", "GENE_3"))
   )
-  methods <- c("cfgsea", "run_limma")
+  methods <- c("cfgsea", "pca_limma")
 
   result <- run_lri_methods(eset, design$design, databases, methods)
 
   expect_is(result, "BenchmarkResults")
   expect_true("cfgsea" %in% names(result))
-  expect_true("run_limma" %in% names(result))
+  expect_true("pca_limma" %in% names(result))
 })
 
 test_that("run_lri_methods processes multiple databases", {
@@ -138,7 +138,7 @@ test_that("run_lri_methods handles paired design with dupcor", {
   result <- run_lri_methods(
     eset, design$design, databases, methods,
     obs_id = obs_id,
-    correlation = design$dupcor
+    correlation = design$dupcor$consensus
   )
 
   expect_is(result, "BenchmarkResults")

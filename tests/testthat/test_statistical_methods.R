@@ -68,7 +68,7 @@ test_that("run_limma handles paired design", {
   obs_id <- rep(1:5, 2)
   design <- create_design(cond, obs_id = obs_id, eset = eset)
 
-  result <- run_limma(eset, design$design, obs_id = obs_id, correlation = design$dupcor)
+  result <- run_limma(eset, design$design, obs_id = obs_id, correlation = design$dupcor$consensus)
 
   expect_is(result, "data.frame")
   expect_true("logFC" %in% colnames(result))
@@ -129,7 +129,7 @@ test_that("cfgsea handles paired design", {
   design <- create_design(cond, obs_id = obs_id, eset = eset)
   db <- create_test_db()
 
-  result <- cfgsea(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor)
+  result <- cfgsea(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor$consensus)
 
   expect_is(result, "data.frame")
 })
@@ -170,7 +170,7 @@ test_that("gsva_limma handles paired design", {
   design <- create_design(cond, obs_id = obs_id, eset = eset)
   db <- create_test_db()
 
-  result <- gsva_limma(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor)
+  result <- gsva_limma(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor$consensus)
 
   expect_is(result, "data.frame")
 })
@@ -210,7 +210,7 @@ test_that("pca_limma handles paired design", {
   design <- create_design(cond, obs_id = obs_id, eset = eset)
   db <- create_test_db()
 
-  result <- pca_limma(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor)
+  result <- pca_limma(eset, design$design, db, obs_id = obs_id, correlation = design$dupcor$consensus)
 
   expect_is(result, "data.frame")
 })
@@ -319,21 +319,11 @@ test_that("pca_plsda handles zero-variance ligands gracefully", {
 # ============================================================================
 
 test_that("cytosig_custom_ridge runs limma DEA and ridge regression", {
-  eset <- create_test_eset(n_genes = 50, n_samples = 10)
+  eset <- create_test_eset(n_genes = nrow(cytosig_beta), n_samples = 10)
   cond <- rep(c("control", "treatment"), each = 5)
   design <- create_design(cond)
 
-  beta_coef <- matrix(
-    rnorm(50 * 5),
-    nrow = 50,
-    ncol = 5,
-    dimnames = list(
-      paste0("GENE_", 1:50),
-      paste0("LIGAND_", 1:5)
-    )
-  )
-
-  result <- cytosig_custom_ridge(eset, design$design, beta_coef = beta_coef)
+  result <- cytosig_custom_ridge(eset, design$design)
 
   expect_is(result, "data.frame")
   expect_true("ligand" %in% colnames(result))
@@ -341,44 +331,24 @@ test_that("cytosig_custom_ridge runs limma DEA and ridge regression", {
 })
 
 test_that("cytosig_custom_ridge returns numeric coefficients", {
-  eset <- create_test_eset(n_genes = 50, n_samples = 10)
+  eset <- create_test_eset(n_genes = nrow(cytosig_beta), n_samples = 10)
   cond <- rep(c("control", "treatment"), each = 5)
   design <- create_design(cond)
 
-  beta_coef <- matrix(
-    rnorm(50 * 5),
-    nrow = 50,
-    ncol = 5,
-    dimnames = list(
-      paste0("GENE_", 1:50),
-      paste0("LIGAND_", 1:5)
-    )
-  )
-
-  result <- cytosig_custom_ridge(eset, design$design, beta_coef = beta_coef)
+  result <- cytosig_custom_ridge(eset, design$design)
 
   expect_true(all(is.numeric(result$coef)))
 })
 
 test_that("cytosig_custom_ridge handles paired design", {
-  eset <- create_test_eset(n_genes = 50, n_samples = 10)
+  eset <- create_test_eset(n_genes = nrow(cytosig_beta), n_samples = 10)
   cond <- rep(c("control", "treatment"), each = 5)
   obs_id <- rep(1:5, 2)
   design <- create_design(cond, obs_id = obs_id, eset = eset)
 
-  beta_coef <- matrix(
-    rnorm(50 * 5),
-    nrow = 50,
-    ncol = 5,
-    dimnames = list(
-      paste0("GENE_", 1:50),
-      paste0("LIGAND_", 1:5)
-    )
-  )
-
   result <- cytosig_custom_ridge(
     eset, design$design, obs_id = obs_id,
-    correlation = design$dupcor, beta_coef = beta_coef
+    correlation = design$dupcor$consensus
   )
 
   expect_is(result, "data.frame")
@@ -389,17 +359,9 @@ test_that("cytosig_custom_ridge handles gene overlap correctly", {
   cond <- rep(c("control", "treatment"), each = 5)
   design <- create_design(cond)
 
-  beta_coef <- matrix(
-    rnorm(100 * 5),
-    nrow = 100,
-    ncol = 5,
-    dimnames = list(
-      paste0("GENE_", 1:100),
-      paste0("LIGAND_", 1:5)
-    )
-  )
-
-  result <- cytosig_custom_ridge(eset, design$design, beta_coef = beta_coef)
+  # Use subset of cytosig_beta to test with fewer genes than beta_coef has
+  beta_subset <- cytosig_beta[1:50, ]
+  result <- cytosig_custom_ridge(eset, design$design, beta_coef = beta_subset)
 
   expect_is(result, "data.frame")
 })

@@ -98,7 +98,7 @@ test_that("run_cytokinefinder validates cond length matches sample count", {
   # Execute & Verify: Should throw error
   expect_error(
     run_cytokinefinder(study_data, databases, methods),
-    "non-conformable"  # model.matrix error
+    "row dimension of design doesn't match column dimension"
   )
 })
 
@@ -171,7 +171,7 @@ test_that("run_cytokinefinder benchmarks is BenchmarkResults class", {
 
   # Verify: benchmarks is BenchmarkResults object
   expect_is(result$benchmarks, "BenchmarkResults")
-  expect_is(result$benchmarks, "list")
+  expect_true(is.list(result$benchmarks))
 })
 
 # ============================================================================
