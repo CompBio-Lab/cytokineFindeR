@@ -3,6 +3,8 @@
 #' Uses a classification approach when computing receptor weights with
 #' Partial Least Squares - Discriminant Analysis and pools these receptors
 #' together to compute a value for the ligand or cytokine given a gene set.
+#' As limma treats all variables as equal importance, PLSDA provides a multiple
+#' regression approach
 #'
 #' @param eset Expression Set object containing gene expression data.
 #' @param treatment Treatment response variable
@@ -10,14 +12,20 @@
 #'
 #' @return A named vector of ligands indicating importance 
 #' @export
-#'
-#' @examples
 #' 
 #' @importFrom GSVA gsvaParam
 #' @importFrom GSVA gsva
 #' @importFrom mixOmics plsda
 #' @importFrom mixOmics selectVar
-
+#' 
+#' @examples
+#' \dontrun{
+#' # Load the database
+#' # data(dbs_all)
+#' # Take one database and run the method on the data and condition for an unpaired dataset
+#' gsva_plsda(eset, treatment, dbs_all$baderlab)
+#' }
+ 
 gsva_plsda <- function(eset, treatment, db){
   length_receptors <- sapply(db, length)
   
@@ -34,6 +42,5 @@ gsva_plsda <- function(eset, treatment, db){
   names(coef) <- rownames(selectVar(fit, comp=1)$value)
   return(enframe(coef[order(coef, decreasing = TRUE)], 
                  name = "ligand", 
-                 value = "coef")
-         )
-}
+                 value = "coef"))
+  }

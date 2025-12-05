@@ -8,9 +8,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Load the database
-#' # dbs_all <- dbs_all
-#' # cpca_plsda(eset, treatment, dbs_all$baderlab)
+#' # data(dbs_all)
+#' # Take one database and run the method on the data and condition
+#' # pca_plsda(eset, treatment, dbs_all$baderlab)
+#' }
 
 pca_plsda <- function(eset, treatment, db){
   pc <- lapply(db, function(ligand){

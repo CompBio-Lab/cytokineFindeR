@@ -9,7 +9,12 @@
 #' @name clean_eset
 #'
 #' @examples
-#' 
+#' \dontrun{
+#' # create a small gene_symbol and ensembl_id df from the GEO dataset example (golimumab TNF-targeted treatment) if annotation df exists
+#' # gensym <- sapply(strsplit(golimumab$GSE92415_series_matrix.txt.gz$annotations$`Gene Symbol`, "///"), trimws) 
+#' # probe2gene_df <- tibble(probeids = rep(rownames(golimumab$GSE92415_series_matrix.txt.gz$annotations), sapply(gensym, length)), gensym = unlist(gensym)) 
+#' # clean_eset(eset, probe2gene_df)
+#' }
 
 clean_eset <- function(eset, gene_list_df){
   # clean eset against list of probe genes

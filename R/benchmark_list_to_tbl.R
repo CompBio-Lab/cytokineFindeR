@@ -6,6 +6,7 @@
 #' 
 #' @return A tibble with flattened benchmark results
 #' Convert nested results to tibble format (handles both benchmark and cytosig structures)
+#' 
 #' @importFrom purrr imap_dfr
 #' @importFrom tibble tibble
 #' 

@@ -15,7 +15,7 @@
 #' # This is part of a series of enrichment analysis methods
 #' # Basic usage:
 #' \dontrun{
-#' gsea_res <- cfgsea(eset, design, dbs)
+#' #gsea_res <- cfgsea(eset, design, dbs)
 #' }
 
 cfgsea <- function(eset, design, db, 

@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # pca_limma_res <- pca_limma(eset, design, db)
+#' }
 #' 
 #' @importFrom stats prcomp
 #' @importFrom limma eBayes

@@ -14,9 +14,11 @@
 #' @importFrom tibble rownames_to_column
 #'
 #' @examples
-#' \dontrun {
-#' readRDS("pert_dats.rds")
-#' cytosig_pert_input <- lapply(pert_dats, run_limma) # runs all pert data using limma for CytoSig  
+#' \dontrun{
+#' # Load up the datasets
+#' # pert_dats <- readRDS("pert_dats.rds")
+#' # runs all pert data using limma for CytoSig
+#' # cytosig_pert_input <- lapply(pert_dats, run_limma)
 #' }
 
 run_limma <- function (eset, design, obs_id = NULL, correlation = NULL) 
