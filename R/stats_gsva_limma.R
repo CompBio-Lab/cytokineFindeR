@@ -18,10 +18,16 @@
 #' @importFrom tibble rownames_to_column
 #' 
 #' @examples
+#' \dontrun{
+#' # Load the database
+#' # data(dbs_all)
+#' # Take one database and run the method on the data and condition for an unpaired dataset
+#' # gsva_limma(eset, treatment, dbs_all$baderlab)
+#' }
 
 gsva_limma <- function(eset, design, 
-                           db, obs_id = NULL, 
-                           correlation = NULL) {
+                       db, obs_id = NULL, 
+                       correlation = NULL) {
   
   length_receptors <- sapply(db, length)
   
