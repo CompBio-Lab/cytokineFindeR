@@ -258,9 +258,3 @@ This package is licensed under the [MIT License](LICENSE.md).
 Bug reports and feature requests can be submitted via [GitHub Issues](https://github.com/CompBio-Lab/cytokineFinder/issues).
 
 ---
-
-## Session Info
-
-```r
-sessionInfo()
-```
