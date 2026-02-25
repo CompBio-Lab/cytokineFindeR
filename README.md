@@ -133,9 +133,6 @@ cytokineFindeR implements seven approaches for inferring ligand activity from re
 | `gsva_limma` | GSVA + limma | Linear model | p-value, adjusted p-value, logFC |
 | `pca_limma` | PCA (1st PC) + limma | Linear model | p-value, adjusted p-value, logFC |
 | `cfgsea` | fGSEA on limma t-statistics | GSEA | p-value, NES |
-| `run_limma` | limma DEA (gene-level) | Linear model | p-value, logFC |
-| `gsva_plsda` | GSVA + PLS-DA | Multivariate | Coefficient (variable importance) |
-| `pca_plsda` | PCA (1st PC) + PLS-DA | Multivariate | Coefficient (variable importance) |
 | `cytosig_custom_ridge` | Ridge regression (CytoSig betas) | Ridge | Coefficient |
 
 **Paired experimental designs** (pre/post or matched samples) are supported in all linear model methods via `obs_id` and duplicate correlation parameters from `limma::duplicateCorrelation`.
