@@ -1,10 +1,10 @@
 # cytokineFindeR
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/CompBio-Lab/cytokineFinder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CompBio-Lab/cytokineFinder/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/CompBio-Lab/cytokineFinder/branch/main/graph/badge.svg)](https://codecov.io/gh/CompBio-Lab/cytokineFinder)
-<!-- [![Bioc devel status](http://www.bioconductor.org/shields/build/devel/bioc/cytokineFindeR.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/cytokineFindeR) -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![codecov](https://codecov.io/gh/CompBio-Lab/cytokineFinder/branch/main/graph/badge.svg)](https://codecov.io/gh/CompBio-Lab/cytokineFinder)
+[![R-CMD-check](https://github.com/CompBio-Lab/cytokineFinder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CompBio-Lab/cytokineFinder/actions/workflows/R-CMD-check.yaml)
+<!-- [![Bioc devel status](http://www.bioconductor.org/shields/build/devel/bioc/cytokineFindeR.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/cytokineFindeR) -->
 <!-- badges: end -->
 
 ## Overview
