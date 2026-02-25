@@ -1,11 +1,5 @@
 # cytokineFindeR
 
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/CompBio-Lab/cytokineFinder/workflows/R-CMD-check/badge.svg)](https://github.com/CompBio-Lab/cytokineFinder/actions)
-[![Bioc devel status](http://www.bioconductor.org/shields/build/devel/bioc/cytokineFindeR.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/cytokineFindeR)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<!-- badges: end -->
-
 ## Overview
 
 **cytokineFindeR** is a Bioconductor R package for measuring and ranking cytokines and other signaling ligands across multiple statistical methods and ligand-receptor interaction (LRI) databases. It uses receptor gene sets derived from curated LRI databases as proxies for upstream ligand activity — enabling transcriptomic inference of cytokine signaling without requiring direct cytokine measurements.
