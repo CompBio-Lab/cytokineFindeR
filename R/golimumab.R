@@ -1,15 +1,25 @@
-#' Golimumab Dataset
+#' Golimumab Treatment Dataset (GSE92415)
 #'
-#' Description of the dataset and its variables.
+#' A pre-processed subset of GEO accession GSE92415 containing bulk gene
+#' expression data from ulcerative colitis patients treated with golimumab,
+#' an anti-TNF biologic. Samples represent paired measurements at Week 0
+#' (pre-treatment) and Week 6 (post-treatment) from colonic tissue isolates.
+#' This dataset is intended for use in package examples and vignettes.
 #'
 #' @docType data
 #' @keywords datasets
 #' @name golimumab
 #' @usage data(golimumab)
-#' @format A data object with metadata and expression set of GSE92415 specific to golimumab treatment:
+#' @format A named list with three elements:
 #' \describe{
-#'   \item{variable1}{Description of variable1}
-#'   \item{variable2}{Description of variable2}
-#'   ...
+#'   \item{qc_eset}{A numeric matrix of normalized gene expression values
+#'     (genes x samples), where rows are gene symbols and columns are sample IDs.}
+#'   \item{cond}{A character vector indicating the treatment time point for
+#'     each sample. Values are \code{"week0"} (pre-treatment) or
+#'     \code{"week6"} (post-treatment).}
+#'   \item{obs_id}{A character vector of subject IDs used to match paired
+#'     samples across time points for use with \code{limma::duplicateCorrelation}.}
 #' }
+#' @source GEO accession GSE92415:
+#'   \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92415}
 NULL

@@ -15,7 +15,7 @@
 #' and the results 
 #' @export
 #'
-#' @importFrom future plan multicore
+#' @importFrom future plan multicore multisession
 #' @importFrom future.apply future_lapply future_sapply
 #' @examples 
 #' # This is the core function for running benchmarks
@@ -27,8 +27,8 @@
 run_lri_methods <- function(eset, design, dbs, methods,
                             treatment = NULL, obs_id = NULL, 
                             correlation = NULL) {
-  # Set up the future plan
-  future::plan(future::multicore)  # Set up multicore parallelism
+  # Set up the future plan (multicore on Unix, multisession on Windows)
+  future::plan(if (.Platform$OS.type == "unix") future::multicore else future::multisession)
 
   # Initialize an empty list to store results
   results <- list()
