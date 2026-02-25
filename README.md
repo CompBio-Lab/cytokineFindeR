@@ -2,13 +2,13 @@
 
 ## Overview
 
-**cytokineFindeR** is an R package for measuring and ranking cytokines and other signaling ligands across multiple statistical methods and ligand-receptor interaction (LRI) databases. It uses receptor gene sets derived from curated LRI databases as proxies for upstream ligand activity — enabling transcriptomic inference of cytokine signaling without requiring direct cytokine measurements.
+**cytokineFindeR** is an R package for measuring and ranking cytokines and other signaling ligands across multiple statistical methods and ligand-receptor interaction (LRI) databases. It uses receptor gene sets derived from curated LRI databases as proxies for upstream ligand activity - enabling transcriptomic inference of cytokine signaling without requiring direct cytokine measurements.
 
 The package supports:
 
 - **Seven statistical methods** ranging from linear models to multivariate machine learning
 - **Multiple curated LRI databases** (e.g., BaderLab, LIANA+, CellChat)
-- **CytoSig integration** — a ridge regression model trained on 20,591 transcriptomic profiles
+- **CytoSig integration** - a ridge regression model trained on 20,591 transcriptomic profiles
 - **Rank-based ensemble scoring** combining LRI-based methods with CytoSig
 - **Paired and unpaired experimental designs** with duplicate correlation support
 - **Parallel execution** via `future` and `future.apply`
@@ -95,19 +95,19 @@ The typical cytokineFindeR analysis follows five steps:
 Raw expression data
         │
         ▼
-1. create_design()       — build design matrix (paired or unpaired)
+1. create_design()       - build design matrix (paired or unpaired)
         │
         ▼
-2. preprocess_eset()     — filter LRI databases and expression set
+2. preprocess_eset()     - filter LRI databases and expression set
         │
         ▼
-3. run_lri_methods()     — run statistical methods × databases in parallel
+3. run_lri_methods()     - run statistical methods × databases in parallel
         │
         ▼
-4. benchlist_to_tbl()    — flatten nested results into a tidy tibble
+4. benchlist_to_tbl()    - flatten nested results into a tidy tibble
         │
         ▼
-5. create_ensemble_results()  — (optional) rank-based ensemble with CytoSig
+5. create_ensemble_results()  - (optional) rank-based ensemble with CytoSig
 ```
 
 Alternatively, all steps (excluding CytoSig ensemble) can be run at once using:
@@ -198,9 +198,9 @@ create_db_space(my_db_list, filePath = "data/my_lri_db.rda")
 
 The `golimumab` dataset is a pre-processed subset of [GSE92415](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92415) from GEO. It contains bulk RNA-seq data from ulcerative colitis patients treated with golimumab (an anti-TNF biologic), comparing gene expression at Week 0 vs. Week 6. It is provided as a named list with three elements:
 
-- `qc_eset` — normalized gene expression matrix (genes × samples)
-- `cond` — treatment condition vector (`"week0"` / `"week6"`)
-- `obs_id` — subject IDs for paired sample matching
+- `qc_eset` - normalized gene expression matrix (genes × samples)
+- `cond` - treatment condition vector (`"week0"` / `"week6"`)
+- `obs_id` - subject IDs for paired sample matching
 
 ```r
 data(golimumab)
