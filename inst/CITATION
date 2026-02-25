@@ -1,0 +1,16 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "cytokineFindeR: an R-package for benchmarking methods and databases for identifying cytokines",
+  author   = c(
+    person("Jeffrey", "Tang", email = "jeffrey.tang@hli.ubc.ca",
+           comment = c(ORCID = "0000-0002-5633-6123")),
+    person("Harnoor", "Dhillon", email = "harn00r@student.ubc.ca")
+    person("Asees", "Singh", email = "asees.singh4@gmail.com")
+    person("Amrit", "Singh", email = "amrit.singh@hli.ubc.ca",
+           comment = c(ORCID = "0000-0002-7475-1646"))
+  ),
+  journal  = "bioRxiv",
+  year     = "2025",
+  url      = "https://www.biorxiv.org/content/10.1101/2025.09.30.679635v1",
+  note     = "R package version 0.99.0"
+)
