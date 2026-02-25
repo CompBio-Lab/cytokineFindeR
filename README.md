@@ -243,7 +243,7 @@ browseVignettes("cytokineFindeR")
 
 If you use cytokineFindeR in your research, please cite:
 
-> Tang J, Singh A. cytokineFindeR: Measure and rank ligands of interest across methods and databases using ligand-receptor interactions. R package version 0.99.0. https://github.com/CompBio-Lab/cytokineFinder
+> Tang J, Singh A. cytokineFindeR: Measure and rank ligands of interest across methods and databases using ligand-receptor interactions. R package version 0.99.0. https://www.biorxiv.org/content/10.1101/2025.09.30.679635v1
 
 ---
 
