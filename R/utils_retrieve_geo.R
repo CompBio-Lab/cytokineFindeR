@@ -1,6 +1,6 @@
 #' Retrieve GEO data using the Bioconductor package GEOquery, clean it up, and store in a df list
 #'
-#' @param geo_ids A character string representing the GEO ID
+#' @param geo_id A character string representing the GEO ID (e.g. "GSE92415")
 #'
 #' @return A combined list of data frames saved by GEO_ID series matrix containing metadata, the eset, and annotations (if available)
 #' @export

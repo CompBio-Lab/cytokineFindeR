@@ -11,11 +11,13 @@ create_db_space(
 )
 }
 \arguments{
-\item{...}{}
+\item{...}{Named database objects to save (passed as name = object pairs).}
 
-\item{filePath}{}
+\item{filePath}{Character string specifying the file path for the saved
+\code{.rda} file. Defaults to \code{"data/ligand_receptor_db.rda"}.}
 
-\item{saveToFile}{}
+\item{saveToFile}{Logical. If \code{TRUE} (default), the database objects
+are saved to \code{filePath}. If \code{FALSE}, nothing is written.}
 }
 \value{
 Saves the database list

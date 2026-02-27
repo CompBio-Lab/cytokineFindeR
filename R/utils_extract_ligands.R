@@ -5,7 +5,8 @@
 #'
 #' @param benchmark_results A BenchmarkResults object containing nested results
 #' @param ligands A vector of ligands to filter BenchmarkResults against
-#' @param metric A vector of metrics to select from ("padj", "pval", "coef")
+#' @param metrics A character vector of metrics to extract. Supported values:
+#' \code{"padj"}, \code{"pval"}, \code{"coef"}.
 #'
 #' @return A data frame containing extracted results for specified ligands
 #' @export

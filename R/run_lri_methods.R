@@ -7,7 +7,6 @@
 #' @param treatment A vector containing the treatment (specific to the demo 
 #' data set, this is to analyze differentially expressed genes between week 0 
 #' and week 6) with the drug gollimumab on Ulcerative colitis patients)
-#' @param dupCor A logical TRUE/FALSE to determine whether or not . Default is set to FALSE.
 #' @param obs_id A vector of sample IDs
 #' @param correlation the average estimated inter-duplicate correlation for  
 #'
@@ -28,7 +27,15 @@ run_lri_methods <- function(eset, design, dbs, methods,
                             treatment = NULL, obs_id = NULL, 
                             correlation = NULL) {
   # Set up the future plan (multicore on Unix, multisession on Windows)
-  future::plan(if (.Platform$OS.type == "unix") future::multicore else future::multisession)
+  # Falls back to sequential if parallel plan cannot be initialised (e.g. in
+  # test environments or nested subprocess contexts)
+  tryCatch(
+    future::plan(if (.Platform$OS.type == "unix") future::multicore else future::multisession),
+    error = function(e) {
+      message("Parallel execution unavailable, using sequential plan: ", e$message)
+      future::plan(future::sequential)
+    }
+  )
 
   # Initialize an empty list to store results
   results <- list()
