@@ -49,11 +49,6 @@ run_lri_methods(
 
   the average estimated inter-duplicate correlation for
 
-- dupCor:
-
-  A logical TRUE/FALSE to determine whether or not . Default is set to
-  FALSE.
-
 ## Value
 
 A large BenchmarkResults object containing a nested list of methods and

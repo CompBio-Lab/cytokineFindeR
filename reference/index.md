@@ -31,7 +31,7 @@
   [`reshape_metric()`](https://compbio-lab.github.io/cytokineFinder/reference/extract_ligands.md)
   : Extract specific ligands and merge results based on a chosen metric
 - [`golimumab`](https://compbio-lab.github.io/cytokineFinder/reference/golimumab.md)
-  : Golimumab Dataset
+  : Golimumab Treatment Dataset (GSE92415)
 - [`gsva_limma()`](https://compbio-lab.github.io/cytokineFinder/reference/gsva_limma.md)
   : Gene Set Variation Analysis for cytokines (cGSVA)
 - [`gsva_plsda()`](https://compbio-lab.github.io/cytokineFinder/reference/gsva_plsda.md)

@@ -60,6 +60,12 @@
 the same tissue of origin, if that exists, provide a vector of this to make
 sure the Expression matrix accounts for this to avoid incorrect DEA input.</p></dd>
 
+
+<dt id="arg-eset">eset<a class="anchor" aria-label="anchor" href="#arg-eset"></a></dt>
+<dd><p>Expression matrix (genes x samples); required when <code>obs_id</code>
+is provided in order to compute duplicate correlations via
+<code><a href="https://rdrr.io/pkg/limma/man/dupcor.html" class="external-link">limma::duplicateCorrelation</a></code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>

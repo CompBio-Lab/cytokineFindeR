@@ -11,9 +11,9 @@ retrieve_geo(geo_id)
 
 ## Arguments
 
-- geo_ids:
+- geo_id:
 
-  A character string representing the GEO ID
+  A character string representing the GEO ID (e.g. "GSE92415")
 
 ## Value
 

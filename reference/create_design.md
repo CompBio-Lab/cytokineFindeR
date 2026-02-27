@@ -21,6 +21,12 @@ create_design(treatment, obs_id = NULL, eset = NULL)
   make sure the Expression matrix accounts for this to avoid incorrect
   DEA input.
 
+- eset:
+
+  Expression matrix (genes x samples); required when `obs_id` is
+  provided in order to compute duplicate correlations via
+  [`limma::duplicateCorrelation`](https://rdrr.io/pkg/limma/man/dupcor.html).
+
 ## Value
 
 Either a design matrix or a design list with components

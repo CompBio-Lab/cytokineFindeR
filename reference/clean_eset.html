@@ -55,11 +55,13 @@ cleaned by gene name using a provided gene list data frame</p>
 
 
 <dl><dt id="arg-eset">eset<a class="anchor" aria-label="anchor" href="#arg-eset"></a></dt>
-<dd><p>Expression Set as a numeric matrix</p></dd>
+<dd><p>Expression Set as a numeric matrix (genes x samples).</p></dd>
 
 
 <dt id="arg-gene-list-df">gene_list_df<a class="anchor" aria-label="anchor" href="#arg-gene-list-df"></a></dt>
-<dd></dd>
+<dd><p>A data frame with columns <code>probeids</code> (probe
+identifiers matching rownames of <code>eset</code>) and <code>gensym</code>
+(gene symbols to map to). Probes mapping to the same gene are averaged.</p></dd>
 
 </dl></div>
     <div class="section level2">

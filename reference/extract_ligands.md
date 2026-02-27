@@ -26,6 +26,11 @@ reshape_metric(df, metric, type)
 
   A vector of ligands to filter BenchmarkResults against
 
+- metrics:
+
+  A character vector of metrics to extract. Supported values: `"padj"`,
+  `"pval"`, `"coef"`.
+
 - df:
 
   Input data frame

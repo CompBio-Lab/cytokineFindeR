@@ -13,9 +13,13 @@ clean_eset(eset, gene_list_df)
 
 - eset:
 
-  Expression Set as a numeric matrix
+  Expression Set as a numeric matrix (genes x samples).
 
 - gene_list_df:
+
+  A data frame with columns `probeids` (probe identifiers matching
+  rownames of `eset`) and `gensym` (gene symbols to map to). Probes
+  mapping to the same gene are averaged.
 
 ## Value
 
