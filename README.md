@@ -97,23 +97,14 @@ head(tbl)
 
 The typical cytokineFindeR analysis follows five steps:
 
-```
-Raw expression data
-        │
-        ▼
-1. create_design()       - build design matrix (paired or unpaired)
-        │
-        ▼
-2. preprocess_eset()     - filter LRI databases and expression set
-        │
-        ▼
-3. run_lri_methods()     - run statistical methods × databases in parallel
-        │
-        ▼
-4. benchlist_to_tbl()    - flatten nested results into a tidy tibble
-        │
-        ▼
-5. create_ensemble_results()  - (optional) rank-based ensemble with CytoSig
+```mermaid
+flowchart TD
+    A([Pre-Processed Expression Data]) --> B
+    B["1. create_design()<br/>Build design matrix<br/>paired or unpaired"] --> C
+    C["2. preprocess_eset()<br/>Filter LRI databases<br/>and expression set"] --> D
+    D["3. run_lri_methods()<br/>Run statistical methods × databases<br/>in parallel"] --> E
+    E["4. benchlist_to_tbl()<br/>Flatten nested results<br/>into a tidy tibble"] --> F
+    F{{"5. create_ensemble_results()<br/>Optional: rank-based<br/>ensemble with CytoSig"}}
 ```
 
 Alternatively, all steps (excluding CytoSig ensemble) can be run at once using:
