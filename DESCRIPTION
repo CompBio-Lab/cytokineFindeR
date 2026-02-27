@@ -26,14 +26,14 @@ Imports:
     mixOmics,
     fgsea,
     GEOquery
-Suggests: 
+Suggests:
     rmarkdown,
     knitr,
     testthat,
     BiocCheck
 biocViews: RNAseq, Microarray, GeneExpression, Transcriptomics, DifferentialExpression, GeneSetEnrichment
 VignetteBuilder: knitr
-URL: https://github.com/CompBio-Lab/cytokineFinder
+URL: https://github.com/CompBio-Lab/cytokineFinder, https://compbio-lab.github.io/cytokineFinder/
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Config/testthat/edition: 3

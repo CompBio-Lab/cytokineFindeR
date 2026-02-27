@@ -1,5 +1,5 @@
 ---
-title: "Intro - how to use CytokineFindeR"
+title: "cytokineFindeR-introduction"
 author: "Jeffrey Tang"
 output: rmarkdown::html_vignette
 vignette: >
@@ -73,8 +73,8 @@ dbs_f <- preprocess_list$dbs_f
 
 The result should return a nested list of benchmark results
 
-```{r, warning=FALSE}
-methods <- c("gsva_limma", 
+```{r, warning=FALSE, eval=FALSE}
+methods <- c("gsva_limma",
              "pca_limma")
 
 results <- run_lri_methods(eset_f,
@@ -91,7 +91,7 @@ results <- run_lri_methods(eset_f,
 
 `benchlist_to_tbl` will rank the cytokine of interest based on the name assignment provided in `golimumab_treatment`, in this case, as the benchmark results are named by `TNF`, the function will output the ranking of TNF across all method+db combinations.
 
-```{r}
+```{r, eval=FALSE}
 golimumab_treatment <- list(TNF = list(benchmarks = results))
 golimumab_tibble <- benchlist_to_tbl(results_list = golimumab_treatment,
                                      study_type = "treatment")
@@ -114,4 +114,3 @@ cytosig <- cytosig_custom_ridge(eset,
                      beta_coef = cytosig_beta)
 cytosig
 ```
-

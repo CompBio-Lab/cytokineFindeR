@@ -1,5 +1,5 @@
 ---
-title: "Polish dbs to protein features"
+title: "LRI Database Curation for Benchmarking"
 author: "Jeffrey Tang"
 date: "2025-08-03"
 output: rmarkdown::html_vignette
