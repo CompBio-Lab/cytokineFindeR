@@ -17,7 +17,8 @@ create_db_space(
 \code{.rda} file. Defaults to \code{"data/ligand_receptor_db.rda"}.}
 
 \item{saveToFile}{Logical. If \code{TRUE} (default), the database objects
-are saved to \code{filePath}. If \code{FALSE}, nothing is written.}}
+are saved to \code{filePath}. If \code{FALSE}, nothing is written.}
+}
 \value{
 Saves the database list
 }

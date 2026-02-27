@@ -1,8 +1,10 @@
 #' Given an expression set, make sure that data is 
 #' cleaned by gene name using a provided gene list data frame
 #'
-#' @param eset Expression Set as a numeric matrix
-#' @param gene_list_df 
+#' @param eset Expression Set as a numeric matrix (genes x samples).
+#' @param gene_list_df A data frame with columns \code{probeids} (probe
+#'   identifiers matching rownames of \code{eset}) and \code{gensym}
+#'   (gene symbols to map to). Probes mapping to the same gene are averaged.
 #'
 #' @return cleaned up expression matrix
 #' @export

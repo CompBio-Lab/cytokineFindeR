@@ -1,9 +1,11 @@
 #' Create an LRI database space
 #' @details This is a function that saves the database list as an RDA in case future contributors wanted to create other variations of the LRI database compendium 
 #'
-#' @param ... 
-#' @param filePath 
-#' @param saveToFile 
+#' @param ... Named database objects to save (passed as name = object pairs).
+#' @param filePath Character string specifying the file path for the saved
+#'   \code{.rda} file. Defaults to \code{"data/ligand_receptor_db.rda"}.
+#' @param saveToFile Logical. If \code{TRUE} (default), the database objects
+#'   are saved to \code{filePath}. If \code{FALSE}, nothing is written.
 #'
 #' @return Saves the database list
 #' @export

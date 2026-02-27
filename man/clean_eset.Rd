@@ -12,7 +12,8 @@ clean_eset(eset, gene_list_df)
 
 \item{gene_list_df}{A data frame with columns \code{probeids} (probe
 identifiers matching rownames of \code{eset}) and \code{gensym}
-(gene symbols to map to). Probes mapping to the same gene are averaged.}}
+(gene symbols to map to). Probes mapping to the same gene are averaged.}
+}
 \value{
 cleaned up expression matrix
 }

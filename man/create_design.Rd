@@ -16,6 +16,7 @@ sure the Expression matrix accounts for this to avoid incorrect DEA input.}
 \item{eset}{Expression matrix (genes x samples); required when \code{obs_id}
 is provided in order to compute duplicate correlations via
 \code{limma::duplicateCorrelation}.}
+}
 \value{
 Either a design matrix or a design list with components
 }
