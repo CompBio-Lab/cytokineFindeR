@@ -14,8 +14,8 @@ The package supports:
 - **4 statistical methods** linear models inferring cytokine activity
   based on LRI databases and a custom implementation of CytoSig, a ridge
   regression model trained on 20,591 transcriptomic profiles
-- **Multiple curated LRI databases** (e.g., BaderLab, LIANA+, CellChat,
-  Omnipath)
+- **Multiple curated LRI databases** (e.g., BaderLab, LIANA+,
+  CellChatv2, Omnipath)
 - **Rank-based ensemble scoring** combining LRI-based methods with
   CytoSig
 - **Paired and unpaired experimental designs** with duplicate
