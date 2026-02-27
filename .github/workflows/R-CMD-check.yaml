@@ -15,9 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release', bioc: '3.20'}
-          - {os: windows-latest, r: 'release', bioc: '3.20'}
-          - {os: macOS-latest,   r: 'release', bioc: '3.20'}
+          - {os: ubuntu-latest, r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          - {os: macOS-latest,   r: 'release'}
 
     steps:
       - uses: actions/checkout@v4
@@ -28,10 +28,6 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
           use-public-rspm: true
-
-      - uses: r-lib/actions/setup-bioc@v2
-        with:
-          bioc-version: ${{ matrix.config.bioc }}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
