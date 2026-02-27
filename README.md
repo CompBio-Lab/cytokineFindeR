@@ -13,9 +13,8 @@
 
 The package supports:
 
-- **Seven statistical methods** ranging from linear models to multivariate machine learning
-- **Multiple curated LRI databases** (e.g., BaderLab, LIANA+, CellChat)
-- **CytoSig integration** - a ridge regression model trained on 20,591 transcriptomic profiles
+- **4 statistical methods**  linear models inferring on LRI databases and a custom implementation of CytoSig, a ridge regression model trained on 20,591 transcriptomic profiles
+- **Multiple curated LRI databases** (e.g., BaderLab, LIANA+, CellChat, Omnipath)
 - **Rank-based ensemble scoring** combining LRI-based methods with CytoSig
 - **Paired and unpaired experimental designs** with duplicate correlation support
 - **Parallel execution** via `future` and `future.apply`
