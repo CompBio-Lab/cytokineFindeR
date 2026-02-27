@@ -10,6 +10,7 @@
 
 library(testthat)
 library(cytokineFindeR)
+data("cytosig_beta")
 
 # ============================================================================
 # Setup: Create test fixtures

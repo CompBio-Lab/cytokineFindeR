@@ -4,10 +4,14 @@
 #' @param obs_id Observation ID: some samples may have unique IDs but come from
 #' the same tissue of origin, if that exists, provide a vector of this to make
 #' sure the Expression matrix accounts for this to avoid incorrect DEA input.
-#' 
+#' @param eset Expression matrix (genes x samples); required when \code{obs_id}
+#' is provided in order to compute duplicate correlations via
+#' \code{limma::duplicateCorrelation}.
+#'
 #' @return Either a design matrix or a design list with components
 #' 
-#' @importFrom limma duplicateCorrelation
+#' @import limma
+#' @importFrom stats model.matrix
 #' @export
 #'
 #' @examples

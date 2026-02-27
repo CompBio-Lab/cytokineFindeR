@@ -20,6 +20,9 @@ reshape_metric(df, metric, type)
 
 \item{ligands}{A vector of ligands to filter BenchmarkResults against}
 
+\item{metrics}{A character vector of metrics to extract. Supported values:
+\code{"padj"}, \code{"pval"}, \code{"coef"}.}
+
 \item{df}{Input data frame}
 
 \item{method_name}{Name of the method}

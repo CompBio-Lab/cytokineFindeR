@@ -7,7 +7,7 @@
 retrieve_geo(geo_id)
 }
 \arguments{
-\item{geo_ids}{A character string representing the GEO ID}
+\item{geo_id}{A character string representing the GEO ID (e.g. "GSE92415")}
 }
 \value{
 A combined list of data frames saved by GEO_ID series matrix containing metadata, the eset, and annotations (if available)

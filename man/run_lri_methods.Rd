@@ -30,8 +30,6 @@ and week 6) with the drug gollimumab on Ulcerative colitis patients)}
 \item{obs_id}{A vector of sample IDs}
 
 \item{correlation}{the average estimated inter-duplicate correlation for}
-
-\item{dupCor}{A logical TRUE/FALSE to determine whether or not . Default is set to FALSE.}
 }
 \value{
 A large BenchmarkResults object containing a nested list of methods
