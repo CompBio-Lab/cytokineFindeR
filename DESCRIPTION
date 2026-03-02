@@ -9,7 +9,7 @@ Description: A comprehensive toolkit for measuring and analyzing cytokines and
     databases using ligand-receptor interactions (LRIs). Provides functions for data retrieval,
     statistical analysis, and visualization of cytokine expression patterns using pre-defined 
     receptor gene sets.
-License: MIT + file LICENSE
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 Depends:
     R (>= 4.4.0)
