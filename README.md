@@ -1,4 +1,4 @@
-# cytokineFindeR
+# cytokineFindeR: a benchmarking framework for regression-based methods to infer on cytokines and other ligand activity
 
 <!-- badges: start -->
 [![codecov](https://codecov.io/gh/CompBio-Lab/cytokineFindeR/branch/main/graph/badge.svg)](https://codecov.io/gh/CompBio-Lab/cytokineFindeR)
@@ -9,7 +9,7 @@
 
 ## Overview
 
-**cytokineFindeR** is an R package for measuring and ranking cytokines and other signaling ligands across multiple statistical methods and ligand-receptor interaction (LRI) databases. It uses receptor gene sets derived from curated LRI databases as proxies for upstream ligand activity - enabling transcriptomic inference of cytokine signaling without requiring direct cytokine measurements.
+**cytokineFindeR** is an R package for benchmarking, identifying, and ranking cytokines and other signaling ligands across multiple statistical methods in combination with ligand-receptor interaction (LRI) databases. It uses receptor gene sets derived from curated LRI databases as proxies for upstream ligand activity - enabling transcriptomic inference of cytokine signaling without requiring direct cytokine measurements.
 
 The package supports:
 
