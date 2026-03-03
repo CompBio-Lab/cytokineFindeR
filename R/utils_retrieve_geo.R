@@ -8,8 +8,8 @@
 #'
 #' @examples
 #' \donttest{
-#' geo_datasets <- retrieve_geo("GSE179478")
-#' GSE179478$GSE179478_series_matrix.txt.gz$metadata
+#' geo_datasets <- retrieve_geo("GSE92415")
+#' geo_datasets$GSE92415_series_matrix.txt.gz$metadata
 #' }
 #'
 #' @importFrom GEOquery getGEO
