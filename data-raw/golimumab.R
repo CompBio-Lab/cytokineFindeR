@@ -48,4 +48,4 @@ golimumab <- list(md = md_paired,
                   cond = cond,
                   obs_id = obs_id)
 
-usethis::use_data(golimumab, overwrite = TRUE)
+usethis::use_data(golimumab, overwrite = TRUE, compress = "xz")
