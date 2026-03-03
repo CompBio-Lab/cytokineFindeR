@@ -15,7 +15,6 @@
 #' @importFrom rlang %||%
 #'
 #' @examples
-#' \donttest{
 #' set.seed(42)
 #' genes      <- paste0("GENE", 1:50)
 #' eset       <- matrix(rnorm(400), nrow = 50, ncol = 8,
@@ -27,7 +26,6 @@
 #' dbs    <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
 #' result <- run_cytokinefinder(study_data, dbs, methods = "cfgsea")
 #' names(result)
-#' }
 run_cytokinefinder <- function(study_data, databases, methods) {
   # Validate required elements
   required_elements <- c("qc_eset", "cond")

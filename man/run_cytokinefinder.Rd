@@ -25,7 +25,6 @@ Original study_data with added 'benchmarks', 'design', and 'preprocessing' eleme
 Wrapper function to run complete cytokinefinder benchmarking workflow with preprocessing
 }
 \examples{
-\donttest{
 set.seed(42)
 genes      <- paste0("GENE", 1:50)
 eset       <- matrix(rnorm(400), nrow = 50, ncol = 8,
@@ -37,5 +36,4 @@ study_data <- list(
 dbs    <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
 result <- run_cytokinefinder(study_data, dbs, methods = "cfgsea")
 names(result)
-}
 }

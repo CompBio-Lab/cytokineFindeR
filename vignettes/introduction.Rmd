@@ -16,7 +16,7 @@ This vignette will outline the following procedures:
 3) Running the benchmark analysis in parallel using `future`
 4) Data visualization which shows p-values 
 
-```{r, include = FALSE}
+```{r default-chunk, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
