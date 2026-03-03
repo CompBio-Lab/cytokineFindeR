@@ -15,7 +15,7 @@ library(cytokineFindeR)
 ```
 
 # Load the LRI database 
-```{r}
+```{r load-db}
 data("dbs_all")
 ```
 
@@ -26,7 +26,7 @@ Created a mapping of potential gene product subunits that pertain to each cytoki
 
 - Some cytokines may have multi-subunits 
 
-```{r}
+```{r list-cytokines}
 # Cytokine to Gene Mapping - Only for CytoSig list
 cytokine_to_gene_mapping <- list(
   "INHBA" = "INHBA",
@@ -96,7 +96,7 @@ cytokine_to_gene_mapping <- list(
 
 - Remove instances where feature references itself to prevent bias of its own gene expression 
 
-```{r}
+```{r helper-fun}
 # Single function to create CytoSig only features across databases
 create_cytokine_dbs <- function(dbs_all, cytokine_mapping) {
   # For each database
@@ -121,6 +121,6 @@ create_cytokine_dbs <- function(dbs_all, cytokine_mapping) {
 ```
 
 # Apply to create cytokine-only databases
-```{r}
+```{r create-db}
 dbs_cytosig <- create_cytokine_dbs(dbs_all, cytokine_to_gene_mapping)
 ```

@@ -29,7 +29,7 @@ library(cytokineFindeR)
 ```
 
 Load demo data (GSE92415) which holds a cleaned up expression set and meta data subset for the treatment (golimumab) on ulcerative colitus patients
-```{r}
+```{r load-data}
 data(golimumab)
 
 obs_id <- golimumab$obs_id
@@ -44,7 +44,7 @@ The full archive of LRI reference databases is `data("dbs_all")`
 
 For this demo, we will be using a subset containing 3 databases specific to cytosig cytokines.
 
-```{r}
+```{r load-db}
 # load the default databases list of lists
 data("dbs_cytosig")
 
@@ -53,7 +53,7 @@ dbs <- dbs_cytosig[names(dbs_cytosig) %in% c("baderlab", "lianaplus", "cellchat"
 ```
 
 ## Set up the design matrix for demo data 
-```{r}
+```{r create-design_matrix}
 # Input treatment: difference between week 0 and week 6
 # input obs_id if paired data (in this case we do have paired data), GSM IDs different for same sample IDs due to different time points
 
@@ -63,7 +63,7 @@ dupcor <- design$dupcor
 ```
 
 ## run preprocessing step
-```{r}
+```{r run-preprocess}
 preprocess_list <- preprocess_eset(eset, dbs)
 eset_f <- preprocess_list$eset_f
 dbs_f <- preprocess_list$dbs_f
@@ -73,7 +73,7 @@ dbs_f <- preprocess_list$dbs_f
 
 The result should return a nested list of benchmark results
 
-```{r, warning=FALSE, eval=FALSE}
+```{r run-lri_methods, warning=FALSE, eval=FALSE}
 methods <- c("gsva_limma",
              "pca_limma")
 
@@ -91,7 +91,7 @@ results <- run_lri_methods(eset_f,
 
 `benchlist_to_tbl` will rank the cytokine of interest based on the name assignment provided in `golimumab_treatment`, in this case, as the benchmark results are named by `TNF`, the function will output the ranking of TNF across all method+db combinations.
 
-```{r, eval=FALSE}
+```{r find-TNF_identification_performance, eval=FALSE}
 golimumab_treatment <- list(TNF = list(benchmarks = results))
 golimumab_tibble <- benchlist_to_tbl(results_list = golimumab_treatment,
                                      study_type = "treatment")
@@ -105,7 +105,7 @@ The `cytosig_custom_ridge` function will run differential expression using limma
 
 The ridge regression implementation takes the common genes based on the beta coefficients from CytoSig and computes the cytokine signatures accordingly.
 
-```{r}
+```{r run-cytosig}
 data("cytosig_beta")
 cytosig <- cytosig_custom_ridge(eset, 
                      design_mat, 
