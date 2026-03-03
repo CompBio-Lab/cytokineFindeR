@@ -32,7 +32,7 @@ Suggests:
     pkgdown,
     testthat,
     BiocCheck
-biocViews: RNAseq, Microarray, GeneExpression, Transcriptomics, DifferentialExpression, GeneSetEnrichment
+biocViews: RNASeq, Microarray, GeneExpression, Transcriptomics, DifferentialExpression, GeneSetEnrichment
 VignetteBuilder: knitr
 URL: https://github.com/CompBio-Lab/cytokineFindeR, https://compbio-lab.github.io/cytokineFindeR/
 BugReports: https://github.com/CompBio-Lab/cytokineFindeR/issues
