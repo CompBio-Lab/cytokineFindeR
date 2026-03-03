@@ -10,6 +10,10 @@
 #' @return Saves the database list
 #' @export
 #'
+#' @examples
+#' db1 <- list(LigandA = c("GENE1", "GENE2"), LigandB = c("GENE3", "GENE4"))
+#' create_db_space(db1 = db1, saveToFile = FALSE)
+#'
 
 create_db_space <- function(...,
                             filePath = "data/ligand_receptor_db.rda",

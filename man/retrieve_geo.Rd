@@ -16,7 +16,7 @@ A combined list of data frames saved by GEO_ID series matrix containing metadata
 Retrieve GEO data using the Bioconductor package GEOquery, clean it up, and store in a df list
 }
 \examples{
-\dontrun{
+\donttest{
 geo_datasets <- retrieve_geo("GSE179478")
 GSE179478$GSE179478_series_matrix.txt.gz$metadata
 }

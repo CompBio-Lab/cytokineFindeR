@@ -20,3 +20,19 @@ Convert nested results to tibble format (handles both benchmark and cytosig stru
 \description{
 Convert nested benchmark results to tibble format
 }
+\examples{
+results <- list(
+    TNF = list(
+        benchmarks = list(
+            gsva_limma = list(
+                db1 = data.frame(
+                    ligand = c("TNF", "IL6"),
+                    pval   = c(0.01, 0.50)
+                )
+            )
+        )
+    )
+)
+benchlist_to_tbl(results, study_type = "treatment")
+
+}

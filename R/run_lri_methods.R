@@ -22,7 +22,6 @@
 #' @importFrom future.apply future_lapply future_sapply
 #' @importFrom stats setNames
 #' @examples
-#' \donttest{
 #' set.seed(42)
 #' genes   <- paste0("GENE", 1:50)
 #' samples <- paste0("S", 1:8)
@@ -34,7 +33,6 @@
 #' dbs     <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
 #' result  <- run_lri_methods(eset, design, dbs, methods = "cfgsea",
 #'                            treatment = treatment)
-#' }
 
 run_lri_methods <- function(eset, design, dbs, methods,
                             treatment = NULL, obs_id = NULL,

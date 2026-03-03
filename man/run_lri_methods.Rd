@@ -45,7 +45,6 @@ and the results
 The core function to run benchmarking of several methods
 }
 \examples{
-\donttest{
 set.seed(42)
 genes   <- paste0("GENE", 1:50)
 samples <- paste0("S", 1:8)
@@ -57,5 +56,4 @@ rownames(design) <- samples
 dbs     <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
 result  <- run_lri_methods(eset, design, dbs, methods = "cfgsea",
                            treatment = treatment)
-}
 }

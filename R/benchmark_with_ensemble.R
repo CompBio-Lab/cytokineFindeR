@@ -41,7 +41,6 @@
 #' @importFrom purrr map2_int pmap map map_dbl
 #'
 #' @examples
-#' \donttest{
 #' master_tbl <- tibble::tibble(
 #'     study_type    = "treatment",
 #'     cytokine      = rep("TNF", 2),
@@ -54,7 +53,6 @@
 #'     )
 #' )
 #' result <- create_ensemble_results(master_tbl)
-#' }
 create_ensemble_results <- function(master_tbl, 
                                     ensemble_method = "mean_rank",
                                     pval_col_lri = "pval",

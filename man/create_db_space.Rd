@@ -28,3 +28,8 @@ Create an LRI database space
 \details{
 This is a function that saves the database list as an RDA in case future contributors wanted to create other variations of the LRI database compendium
 }
+\examples{
+db1 <- list(LigandA = c("GENE1", "GENE2"), LigandB = c("GENE3", "GENE4"))
+create_db_space(db1 = db1, saveToFile = FALSE)
+
+}

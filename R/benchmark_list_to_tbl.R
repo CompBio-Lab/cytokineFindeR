@@ -9,7 +9,22 @@
 #' 
 #' @importFrom purrr imap_dfr
 #' @importFrom tibble tibble
-#' 
+#'
+#' @examples
+#' results <- list(
+#'     TNF = list(
+#'         benchmarks = list(
+#'             gsva_limma = list(
+#'                 db1 = data.frame(
+#'                     ligand = c("TNF", "IL6"),
+#'                     pval   = c(0.01, 0.50)
+#'                 )
+#'             )
+#'         )
+#'     )
+#' )
+#' benchlist_to_tbl(results, study_type = "treatment")
+#'
 #' @export
 
 benchlist_to_tbl <- function(results_list,

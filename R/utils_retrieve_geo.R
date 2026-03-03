@@ -7,7 +7,7 @@
 #' @name retrieve_geo
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' geo_datasets <- retrieve_geo("GSE179478")
 #' GSE179478$GSE179478_series_matrix.txt.gz$metadata
 #' }

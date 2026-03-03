@@ -53,7 +53,6 @@ Ranking system: Converts p-values to percentile ranks where 100 represents
 the best (lowest p-value) and 0 represents the worst (highest p-value).
 }
 \examples{
-\donttest{
 master_tbl <- tibble::tibble(
     study_type    = "treatment",
     cytokine      = rep("TNF", 2),
@@ -66,5 +65,4 @@ master_tbl <- tibble::tibble(
     )
 )
 result <- create_ensemble_results(master_tbl)
-}
 }
