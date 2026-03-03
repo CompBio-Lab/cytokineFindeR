@@ -11,7 +11,7 @@ A list of lists containing LRIs for all database sources
 Various ligand receptor interaction databases
 }
 \usage{
-dbs_all
+data(dbs_all)
 }
 \description{
 Database List unfiltered

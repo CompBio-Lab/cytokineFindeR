@@ -49,10 +49,18 @@ This function extracts specified ligands from a \code{BenchmarkResults} object
 and merges the results into a single data frame using the specified metric.
 }
 \examples{
-\dontrun{
-results_df <- extract_ligands(
-    benchmark_results = results,
-    ligands = c("LigandA", "LigandB"),
-    metric = "coef")
-}
+br <- structure(
+    list(
+        pca_limma = list(
+            db1 = data.frame(
+                ligand = c("LigandA", "LigandB"),
+                pval   = c(0.01, 0.50),
+                padj   = c(0.05, 0.90),
+                coef   = c(2.10, 0.30)
+            )
+        )
+    ),
+    class = "BenchmarkResults"
+)
+result <- extract_ligands(br, ligands = "LigandA", metrics = "padj")
 }

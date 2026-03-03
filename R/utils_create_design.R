@@ -15,14 +15,20 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # data(golimumab)
-#' # For paired datasets (biological replicates), we can use dupcor blocks
-#' # design <- create_design(treatment = golimumab$cond, obs_id = golimumab$obs_id, eset = golimumab$qc_eset)
-#' 
-#' # If unpaired datasets, we can ignore the obs_id argument
-#' # design <- create_design(treatment = golimumab$cond, eset = golimumab$qc_eset)
-#' }
+#' # Unpaired design
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' result <- create_design(treatment)
+#' result$design
+#'
+#' # Paired design with duplicate correlation
+#' set.seed(42)
+#' genes   <- paste0("GENE", 1:20)
+#' samples <- paste0("S", 1:8)
+#' eset    <- matrix(rnorm(160), nrow = 20, ncol = 8,
+#'                  dimnames = list(genes, samples))
+#' obs_id  <- rep(1:4, 2)
+#' result_paired <- create_design(treatment, obs_id = obs_id, eset = eset)
+#' result_paired$design
 
 create_design <- function(treatment, obs_id = NULL, eset = NULL){
   if(is.null(obs_id)) {

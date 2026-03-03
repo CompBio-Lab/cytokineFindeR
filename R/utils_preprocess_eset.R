@@ -7,9 +7,13 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' preprocess_eset(eset, dbs)
-#' }
+#' set.seed(42)
+#' genes <- paste0("GENE", 1:20)
+#' eset  <- matrix(rnorm(160), nrow = 20, ncol = 8,
+#'                 dimnames = list(genes, paste0("S", 1:8)))
+#' dbs   <- list(db1 = list(LigandA = genes[1:5], LigandB = genes[6:10]))
+#' result <- preprocess_eset(eset, dbs)
+#' names(result)
 
 preprocess_eset <- function(eset, dbs) {
   # filter the dbs against the eset 

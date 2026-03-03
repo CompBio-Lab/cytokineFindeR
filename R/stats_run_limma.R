@@ -14,12 +14,15 @@
 #' @importFrom tibble rownames_to_column
 #'
 #' @examples
-#' \dontrun{
-#' # Load up the datasets
-#' # pert_dats <- readRDS("pert_dats.rds")
-#' # runs all pert data using limma for CytoSig
-#' # cytosig_pert_input <- lapply(pert_dats, run_limma)
-#' }
+#' set.seed(42)
+#' genes   <- paste0("GENE", 1:20)
+#' samples <- paste0("S", 1:8)
+#' eset    <- matrix(rnorm(160), nrow = 20, ncol = 8,
+#'                  dimnames = list(genes, samples))
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' design  <- model.matrix(~ treatment)
+#' rownames(design) <- samples
+#' result  <- run_limma(eset, design)
 
 run_limma <- function (eset, design, obs_id = NULL, correlation = NULL) 
 {

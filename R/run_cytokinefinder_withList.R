@@ -15,30 +15,18 @@
 #' @importFrom rlang %||%
 #'
 #' @examples
-#' # Single study example
+#' \donttest{
+#' set.seed(42)
+#' genes      <- paste0("GENE", 1:50)
+#' eset       <- matrix(rnorm(400), nrow = 50, ncol = 8,
+#'                      dimnames = list(genes, paste0("S", 1:8)))
 #' study_data <- list(
-#'   qc_eset = matrix(rnorm(1000), nrow = 100, ncol = 10),
-#'   cond = rep(c("control", "treatment"), each = 5)
+#'     qc_eset = eset,
+#'     cond    = rep(c("ctrl", "trt"), each = 4)
 #' )
-#' 
-#' # With paired samples
-#' study_data_paired <- list(
-#'   qc_eset = matrix(rnorm(1000), nrow = 100, ncol = 10),
-#'   cond = rep(c("control", "treatment"), each = 5),
-#'   obs_id = rep(1:5, 2)
-#' )
-#' 
-#' \dontrun{
-#' # Load databases and methods
-#' data(dbs_all)  # or however you load your databases
-#' methods <- c("gsea", "ssgsea", "cytosig_custom_ridge")
-#' 
-#' # Run workflow
-#' results <- run_cytokinefinder_workflow(study_data, dbs_all, methods)
-#' 
-#' # Access results
-#' benchmark_results <- results$benchmarks
-#' design_matrix <- results$design
+#' dbs    <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
+#' result <- run_cytokinefinder(study_data, dbs, methods = "cfgsea")
+#' names(result)
 #' }
 run_cytokinefinder <- function(study_data, databases, methods) {
   # Validate required elements

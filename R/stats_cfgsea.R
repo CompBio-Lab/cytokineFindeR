@@ -12,11 +12,16 @@
 #' @importFrom fgsea fgsea
 #' 
 #' @examples
-#' # This is part of a series of enrichment analysis methods
-#' # Basic usage:
-#' \dontrun{
-#' #gsea_res <- cfgsea(eset, design, dbs)
-#' }
+#' set.seed(42)
+#' genes   <- paste0("GENE", 1:50)
+#' samples <- paste0("S", 1:8)
+#' eset    <- matrix(rnorm(400), nrow = 50, ncol = 8,
+#'                  dimnames = list(genes, samples))
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' design  <- model.matrix(~ treatment)
+#' rownames(design) <- samples
+#' db <- list(LigandA = genes[1:10], LigandB = genes[11:20])
+#' result <- cfgsea(eset, design, db)
 
 cfgsea <- function(eset, design, db, 
                    obs_id = NULL, correlation = NULL) {

@@ -24,10 +24,16 @@ top table of all ligands
 Gene Set Variation Analysis for cytokines (cGSVA)
 }
 \examples{
-\dontrun{
-# Load the database
-# data(dbs_all)
-# Take one database and run the method on the data and condition for an unpaired dataset
-# gsva_limma(eset, treatment, dbs_all$baderlab)
+\donttest{
+set.seed(42)
+genes   <- paste0("GENE", 1:50)
+samples <- paste0("S", 1:8)
+eset    <- matrix(rnorm(400), nrow = 50, ncol = 8,
+                 dimnames = list(genes, samples))
+treatment <- rep(c("ctrl", "trt"), each = 4)
+design  <- model.matrix(~ treatment)
+rownames(design) <- samples
+db      <- list(LigandA = genes[1:10], LigandB = genes[11:20])
+result  <- gsva_limma(eset, design, db)
 }
 }

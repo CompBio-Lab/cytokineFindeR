@@ -11,7 +11,7 @@ A list of lists containing LRIs for a subset of database sources
 Various ligand receptor interaction databases
 }
 \usage{
-dbs_subset
+data(dbs_subset)
 }
 \description{
 Small Database example

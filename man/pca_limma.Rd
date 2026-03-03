@@ -24,8 +24,15 @@ a data frame of differentially expressed ligands ordered by p-values
 Calculate top ligands using a PCA approach from receptor genes given a database
 }
 \examples{
-\dontrun{
-# pca_limma_res <- pca_limma(eset, design, db)
-}
+set.seed(42)
+genes   <- paste0("GENE", 1:20)
+samples <- paste0("S", 1:8)
+eset    <- matrix(rnorm(160), nrow = 20, ncol = 8,
+                 dimnames = list(genes, samples))
+treatment <- rep(c("ctrl", "trt"), each = 4)
+design  <- model.matrix(~ treatment)
+rownames(design) <- samples
+db <- list(LigandA = genes[1:5], LigandB = genes[6:10])
+result <- pca_limma(eset, design, db)
 
 }

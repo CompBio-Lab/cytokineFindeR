@@ -1,20 +1,10 @@
-.METHOD_REGISTRY <- list(
-    gsva_limma           = gsva_limma,
-    pca_limma            = pca_limma,
-    cfgsea               = cfgsea,
-    run_limma            = run_limma,
-    gsva_plsda           = gsva_plsda,
-    pca_plsda            = pca_plsda,
-    cytosig_custom_ridge = cytosig_custom_ridge
-)
-
 #' The core function to run benchmarking of several methods
 #'
 #' @param eset An expression set (numeric matrix) of genes x samples
 #' @param design The design matrix for the data set used to generate the model
 #' @param dbs The databases in a list of list format (for package default, use dbs_all)
 #' @param methods A character vector of method names to benchmark. Must be one
-#'   or more of: `"gsva_limma"`, `"pca_limma"`, `"cfgsea"`, `"run_limma"`,
+#'   or more of: `"gsva_limma"`, `"pca_limma"`, `"cfgsea"`,
 #'   `"gsva_plsda"`, `"pca_plsda"`, `"cytosig_custom_ridge"`.
 #' @param treatment A vector containing the treatment (specific to the demo
 #' data set, this is to analyze differentially expressed genes between week 0
@@ -30,17 +20,35 @@
 #'
 #' @importFrom future plan multicore multisession
 #' @importFrom future.apply future_lapply future_sapply
+#' @importFrom stats setNames
 #' @examples
-#' # This is the core function for running benchmarks
-#' # Basic usage:
-#' \dontrun{
-#' result <- run_lri_methods(eset, design, dbs, methods = c("cfgsea", "pca_limma"))
+#' \donttest{
+#' set.seed(42)
+#' genes   <- paste0("GENE", 1:50)
+#' samples <- paste0("S", 1:8)
+#' eset    <- matrix(rnorm(400), nrow = 50, ncol = 8,
+#'                  dimnames = list(genes, samples))
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' design  <- model.matrix(~ treatment)
+#' rownames(design) <- samples
+#' dbs     <- list(db1 = list(LigandA = genes[1:10], LigandB = genes[11:20]))
+#' result  <- run_lri_methods(eset, design, dbs, methods = "cfgsea",
+#'                            treatment = treatment)
 #' }
 
 run_lri_methods <- function(eset, design, dbs, methods,
                             treatment = NULL, obs_id = NULL,
                             correlation = NULL, verbose = FALSE) {
-  methods <- match.arg(methods, choices = names(.METHOD_REGISTRY),
+  method_registry <- list(
+    gsva_limma           = gsva_limma,
+    pca_limma            = pca_limma,
+    cfgsea               = cfgsea,
+    gsva_plsda           = gsva_plsda,
+    pca_plsda            = pca_plsda,
+    cytosig_custom_ridge = cytosig_custom_ridge
+  )
+
+  methods <- match.arg(methods, choices = names(method_registry),
                        several.ok = TRUE)
 
   # Set up the future plan (multicore on Unix, multisession on Windows)
@@ -59,7 +67,7 @@ run_lri_methods <- function(eset, design, dbs, methods,
 
   # Iterate over each method in the methods list
   for (method_name in methods) {
-    method <- .METHOD_REGISTRY[[method_name]]
+    method <- method_registry[[method_name]]
 
     # Parallel execution for the current method
     method_results <- future_lapply(names(dbs), function(database) {

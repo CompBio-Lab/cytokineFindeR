@@ -18,13 +18,18 @@
 #' @importFrom tibble column_to_rownames rownames_to_column
 #'
 #' @examples
-#' \dontrun{
-#' # Ridge regression with default CytoSig beta coefficients
-#' result <- cytosig_custom_ridge(eset, design)
-#'
-#' # Ridge regression with custom beta coefficients
-#' result <- cytosig_custom_ridge(eset, design, beta_coef = custom_beta)
-#' }
+#' set.seed(42)
+#' genes   <- paste0("GENE", 1:30)
+#' samples <- paste0("S", 1:8)
+#' eset    <- matrix(rnorm(240), nrow = 30, ncol = 8,
+#'                  dimnames = list(genes, samples))
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' design  <- model.matrix(~ treatment)
+#' rownames(design) <- samples
+#' # synthetic beta coefficient matrix with matching gene names
+#' beta    <- matrix(rnorm(60), nrow = 30, ncol = 2,
+#'                  dimnames = list(genes, c("CytokineA", "CytokineB")))
+#' result  <- cytosig_custom_ridge(eset, design, beta_coef = beta)
 #'
 
 cytosig_custom_ridge <- function(eset, design,

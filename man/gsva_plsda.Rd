@@ -24,10 +24,13 @@ As limma treats all variables as equal importance, PLSDA provides a multiple
 regression approach
 }
 \examples{
-\dontrun{
-# Load the database
-# data(dbs_all)
-# Take one database and run the method on the data and condition for an unpaired dataset
-gsva_plsda(eset, treatment, dbs_all$baderlab)
+\donttest{
+set.seed(42)
+genes     <- paste0("GENE", 1:50)
+eset      <- matrix(rnorm(400), nrow = 50, ncol = 8,
+                    dimnames = list(genes, paste0("S", 1:8)))
+treatment <- rep(c("ctrl", "trt"), each = 4)
+db        <- list(LigandA = genes[1:10], LigandB = genes[11:20])
+result    <- gsva_plsda(eset, treatment, db)
 }
 }

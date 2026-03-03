@@ -13,12 +13,20 @@
 #' @import dplyr
 #' @import purrr
 #' @examples
-#' \dontrun{
-#' results_df <- extract_ligands(
-#'     benchmark_results = results,
-#'     ligands = c("LigandA", "LigandB"),
-#'     metric = "coef")
-#' }
+#' br <- structure(
+#'     list(
+#'         pca_limma = list(
+#'             db1 = data.frame(
+#'                 ligand = c("LigandA", "LigandB"),
+#'                 pval   = c(0.01, 0.50),
+#'                 padj   = c(0.05, 0.90),
+#'                 coef   = c(2.10, 0.30)
+#'             )
+#'         )
+#'     ),
+#'     class = "BenchmarkResults"
+#' )
+#' result <- extract_ligands(br, ligands = "LigandA", metrics = "padj")
 
 extract_ligands <- function(benchmark_results, ligands, metrics = c("padj", "coef")) {
   ligands <- as.vector(ligands)

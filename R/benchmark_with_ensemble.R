@@ -41,24 +41,19 @@
 #' @importFrom purrr map2_int pmap map map_dbl
 #'
 #' @examples
-#' \dontrun{
-#' # Assuming you have benchmark results
-#' results <- run_cytokinefinder_workflow(study_data, databases, methods)
-#' 
-#' # Convert to tibble format  
-#' master_tbl <- benchlist_to_tbl(results$benchmarks, "my_study", FALSE)
-#' 
-#' # Create ensemble results
-#' ensemble_results <- create_ensemble_results(
-#'   master_tbl, 
-#'   ensemble_method = "mean_rank",
-#'   pval_col_lri = "pval",
-#'   pval_col_cytosig = "pval"
+#' \donttest{
+#' master_tbl <- tibble::tibble(
+#'     study_type    = "treatment",
+#'     cytokine      = rep("TNF", 2),
+#'     method        = c("gsva_limma", "cytosig_custom_ridge"),
+#'     database      = c("db1", "cytosig"),
+#'     class         = c("LRI", "CytoSig_Web"),
+#'     ligand_tables = list(
+#'         data.frame(ligand = c("TNF", "IL6"), pval = c(0.01, 0.50)),
+#'         data.frame(ligand = c("TNF", "IL6"), pval = c(0.02, 0.30))
+#'     )
 #' )
-#' 
-#' # View ensemble rankings
-#' ensemble_results %>% 
-#'   select(cytokine, method, database, ensemble_rank, lri_rank, cytosig_rank)
+#' result <- create_ensemble_results(master_tbl)
 #' }
 create_ensemble_results <- function(master_tbl, 
                                     ensemble_method = "mean_rank",

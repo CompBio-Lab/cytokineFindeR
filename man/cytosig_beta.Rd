@@ -11,7 +11,7 @@ A matrix of cytosig gene co-expression weights or betas
 From CytoSig
 }
 \usage{
-cytosig_beta
+data(cytosig_beta)
 }
 \description{
 CytoSig Betas

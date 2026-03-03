@@ -8,12 +8,13 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # Load the database
-#' # data(dbs_all)
-#' # Take one database and run the method on the data and condition
-#' # pca_plsda(eset, treatment, dbs_all$baderlab)
-#' }
+#' set.seed(42)
+#' genes     <- paste0("GENE", 1:20)
+#' eset      <- matrix(rnorm(160), nrow = 20, ncol = 8,
+#'                     dimnames = list(genes, paste0("S", 1:8)))
+#' treatment <- rep(c("ctrl", "trt"), each = 4)
+#' db        <- list(LigandA = genes[1:5], LigandB = genes[6:10])
+#' result    <- pca_plsda(eset, treatment, db)
 
 pca_plsda <- function(eset, treatment, db){
   pc <- lapply(db, function(ligand){

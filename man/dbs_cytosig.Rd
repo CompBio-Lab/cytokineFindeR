@@ -11,7 +11,7 @@ A list of lists containing LRIs for all database sources subset on CytoSig featu
 Various LRI databases
 }
 \usage{
-dbs_cytosig
+data(dbs_cytosig)
 }
 \description{
 Database List to make comparable benchmarks against CytoSig
